@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "til"
+  site-url: "https://mone27.github.io/til"
+  description: "Today I Learned (TIL)"
+  repo-branch: main
+  repo-url: "https://github.com/mone27/til"
