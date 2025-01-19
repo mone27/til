@@ -3,17 +3,19 @@ project:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: 
+      dark: darkly
+      light: minty
+    # css: styles.css
     toc: true
 
 website:
-  twitter-card: true
   open-graph: true
-  repo-actions: [issue]
+  repo-actions: none
   navbar:
     background: primary
     search: true
+    title: "TIL"
   sidebar:
     style: floating
 
