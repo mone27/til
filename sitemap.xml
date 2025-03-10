@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mone27.github.io/til/index.html</loc>
+    <lastmod>2025-03-10T15:34:11.475Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mone27.github.io/til/posts/pdal_python_bindings.html</loc>
+    <lastmod>2025-03-10T15:34:11.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mone27.github.io/til/posts/server_remote_tunnel_windows.html</loc>
+    <lastmod>2025-03-10T15:34:11.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mone27.github.io/til/posts/coding_llm_long_output.html</loc>
+    <lastmod>2025-03-10T15:34:11.473Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mone27.github.io/til/posts/pdal_laspy_read.html</loc>
+    <lastmod>2025-03-10T15:34:11.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mone27.github.io/til/posts/pdal_tindex_append.html</loc>
+    <lastmod>2025-03-10T15:34:11.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mone27.github.io/til/posts/deploy_gh_pages_custom_domain.html</loc>
+    <lastmod>2025-03-10T15:34:11.524Z</lastmod>
+  </url>
+</urlset>
