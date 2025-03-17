@@ -1,0 +1,22 @@
+# LasR and TLS
+
+LasR is a great library but has been designed for ALS and while it can work with TLS data is far from optimised.
+What I found after some think is that the grid resolution of the `GridPartition` is way too high,a TLS point clouds has something in the order or a few hundred thousands point per square meters, while the code in `lasR` only consider densities of 100 pts/m2. https://github.com/r-lidar/lasR/blob/9a3bf047f72df969de321545bc8d206a51f90fc1/src/LASRcore/GridPartition.cpp#L36
+```cpp
+double GridPartition::guess_resolution_from_density(double density)
+{
+  // !! Can use a more strategic function !!
+  double res = 10;             // < 100 pts/cell
+  if (density > 1) res = 5;    // < 125 pts/cell
+  if (density > 5) res = 2;    // < 40 pts/cell
+  if (density > 10) res = 1;   // < 12.5 pts/cell
+  if (density > 50) res = 0.5; // < 6.25 pts/cell
+  if (density > 100) res = 0.25;
+  return res;
+}
+```
+(btw those if statements are in the wrong order)
+
+I think this explains the super slow times I am experiencing with TLS data as basically there is no spatial index.
+
+Moreover, you can argue that a grid index is not optimal in tls data where there is significant height difference between the points.
