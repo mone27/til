@@ -1,0 +1,217 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TIL (Today I Learned)",
+    "section": "",
+    "text": "Marimo\n\n\n\n\n\n\n\n\nAug 10, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nNode commands additional arguments\n\n\n\n\n\n\n\n\nJun 2, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nInstall Pytorch + Cuda using conda\n\n\n\n\n\n\n\n\nApr 29, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nConda for R dependencies\n\n\n\n\n\n\n\n\nMar 18, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nColorize point cloud: Polars vs PDAL\n\n\n\n\n\n\n\n\nMar 18, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nLasR and TLS\n\n\n\n\n\n\n\n\nMar 17, 2025\n\n\nYour Name\n\n\n\n\n\n\n\n\n\n\n\n\nPDAL + python = use official bindings? not so fast!\n\n\nwhen calling PDAL from python using the cli interface is often a better choice than using the python bindings\n\n\n\n\n\nMar 10, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nPDAL tindex append\n\n\n\n\n\n\n\n\nMar 10, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nLaspy is over 2 times faster than PDAL at reading LAS files\n\n\n\n\n\n\n\n\nMar 9, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nCoding with LLM and long output\n\n\n\n\n\n\n\n\nFeb 16, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nDeploy Quarto on Github pages on a custom domain\n\n\n\n\n\n\n\n\nJan 19, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nHTTP Server behind remote ssh tunnel on windows = 💥\n\n\n\n\n\n\n\n\nJan 16, 2025\n\n\nSimone Massaro\n\n\n\n\n\n\n\n\n\n\n\n\nHTTPie.io\n\n\n\n\n\n\n\n\nJan 1, 2025\n\n\nSimone Massaro\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "TIL (Today I Learned)"
+    ]
+  },
+  {
+    "objectID": "posts/color_polars_pdal_bench.html",
+    "href": "posts/color_polars_pdal_bench.html",
+    "title": "Colorize point cloud: Polars vs PDAL",
+    "section": "",
+    "text": "Here I am comparing polars and PDAL for adding a color information on a point clouds. Polars is reading a writing a point cloud transformed into parquet format. PDAL is reading and writing a point cloud in LAZ format.\nThe operations are roughly the same and should be comparable.\nFor the computation part Polar is about 13x faster than PDAL.\nHowever when we add also writing the point cloud to disk, the is overhead (my guess becuse writing parquet can’t be done in parallel) resulting in Polars being only 2x faster.\nThose are not rigourous benchmarks, but just a quick exploration 1.\nNote: Polars does use multiple core, but the fact that I can do it transparently is a big plus.",
+    "crumbs": [
+      "posts",
+      "Colorize point cloud: Polars vs PDAL"
+    ]
+  },
+  {
+    "objectID": "posts/color_polars_pdal_bench.html#footnotes",
+    "href": "posts/color_polars_pdal_bench.html#footnotes",
+    "title": "Colorize point cloud: Polars vs PDAL",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nMy machine has Intel® Core™ i7-10750H CPU @ 2.60GHz × 12 and 64GB of RAM↩︎",
+    "crumbs": [
+      "posts",
+      "Colorize point cloud: Polars vs PDAL"
+    ]
+  },
+  {
+    "objectID": "posts/marimo.html",
+    "href": "posts/marimo.html",
+    "title": "Marimo",
+    "section": "",
+    "text": "Marimo first impressions\nI started to experiment with Marimo because I wanted to try a reactive notebook, that for basic data analysis seems an interesting idea.\nYou can check all about Marimo at marimo.io\nWhat I like:\n\nthe UI is polished\nit suggest to autoinstall missing packages and uses uv!\n\nWhat I don’t like:\n\ncannot redefine variables. I have developed the habit that a notebook cell needs to be idempotent, which means that I can rerun it as many times and it still gives the same result. This does mean I can modify variables there, the most common use case is adding a column to a dataframe. With marimo I can’t do that and I need to come up with new variable names.\ndoesn’t support star imports\nthe ui of the dataframe seems that sometimes doesn’t sync with the data\n\noverall it looks pretty nice, I should definitely keep playing with it."
+  },
+  {
+    "objectID": "posts/pdal_tindex_append.html",
+    "href": "posts/pdal_tindex_append.html",
+    "title": "PDAL tindex append",
+    "section": "",
+    "text": "when you run pdal create tindex it the file already exists (at least tested with gpkg) it will not overwrite it but append to it.\nThis is likely an intended behaviour as it can be convient to progressively update a tindex, but is a problem is you change something in the processing code and you want to delete the old data.",
+    "crumbs": [
+      "posts",
+      "PDAL tindex append"
+    ]
+  },
+  {
+    "objectID": "posts/lasr_tls.html",
+    "href": "posts/lasr_tls.html",
+    "title": "LasR and TLS",
+    "section": "",
+    "text": "LasR and TLS\nLasR is a great library but has been designed for ALS and while it can work with TLS data is far from optimised. What I found after some think is that the grid resolution of the GridPartition is way too high,a TLS point clouds has something in the order or a few hundred thousands point per square meters, while the code in lasR only consider densities of 100 pts/m2. https://github.com/r-lidar/lasR/blob/9a3bf047f72df969de321545bc8d206a51f90fc1/src/LASRcore/GridPartition.cpp#L36\ndouble GridPartition::guess_resolution_from_density(double density)\n{\n  // !! Can use a more strategic function !!\n  double res = 10;             // &lt; 100 pts/cell\n  if (density &gt; 1) res = 5;    // &lt; 125 pts/cell\n  if (density &gt; 5) res = 2;    // &lt; 40 pts/cell\n  if (density &gt; 10) res = 1;   // &lt; 12.5 pts/cell\n  if (density &gt; 50) res = 0.5; // &lt; 6.25 pts/cell\n  if (density &gt; 100) res = 0.25;\n  return res;\n}\n(btw those if statements are in the wrong order)\nI think this explains the super slow times I am experiencing with TLS data as basically there is no spatial index.\nMoreover, you can argue that a grid index is not optimal in tls data where there is significant height difference between the points.",
+    "crumbs": [
+      "posts",
+      "LasR and TLS"
+    ]
+  },
+  {
+    "objectID": "posts/install_pytorch_cuda_conda.html",
+    "href": "posts/install_pytorch_cuda_conda.html",
+    "title": "Install Pytorch + Cuda using conda",
+    "section": "",
+    "text": "You can install cuda in a conda enviroment using conda-forge and it just works :) No additional channels required.\nthis (snippet) of your pixi.toml should do the trick:\n[dependencies]\ncuda = \"==12.6.3\" # or any other exact version of cuda that is compatible with your pytorch version\npytorch-gpu = \"==2.6.0\" # this is the new package from conda-forge\nThe pytorch conda channel is deprecated https://github.com/pytorch/pytorch/issues/138506, which means that the conda-forge version may be a bit out of date (like now the version 2.7 is not yet available), but you can still install pytorch from PyPi and cuda with conda and this works very well",
+    "crumbs": [
+      "posts",
+      "Install Pytorch + Cuda using conda"
+    ]
+  },
+  {
+    "objectID": "posts/server_remote_tunnel_windows.html",
+    "href": "posts/server_remote_tunnel_windows.html",
+    "title": "HTTP Server behind remote ssh tunnel on windows = 💥",
+    "section": "",
+    "text": "I want to run a local web server on my windows machine and this needs to accesible by the remote computer.\nI need this because the local server needs to open a local app on the windows machine when a certain endpoint is hit.\nSo I have a simple flask application that runs locally, however for the scope of today TIL that is not even relevant. What matters is that I need to access to local windows server from a remote computer.\nAssuming the server is running on localhost:5000 and I want to access it from the remote server.\nThis is the idea:\n\nsetup a reverse ssh tunnel from the windows machine to the remote server (ssh -R 5000:localhost:5000 remote-server)\naccess the local server from the remote server (curl http://localhost:5000)\n\nThis setup works on linux but can’t make it work on Windows.\nIf I login on the remote server and run curl http://localhost:5000 I get the response from the local server: curl: (52) Empty reply from server\nI am quite sure this is a windows issue because I have remove all other possible sources of errors, but I can’t figure out what is the root cause.",
+    "crumbs": [
+      "posts",
+      "HTTP Server behind remote ssh tunnel on windows = 💥"
+    ]
+  },
+  {
+    "objectID": "posts/node_commands_arguments.html",
+    "href": "posts/node_commands_arguments.html",
+    "title": "Node commands additional arguments",
+    "section": "",
+    "text": "To pass an argument to a node run command you need to add them after the -- separator.\nSo for example if you want to pass the --host argument you need to do: npm run dev -- --host and not npm run dev --host, what I’d have done in my ignorance.\nI know this is a not a big discovery, but I am a quite new to node and I need to thank that the LLM saved me a lot of confusing debugging time.",
+    "crumbs": [
+      "posts",
+      "Node commands additional arguments"
+    ]
+  },
+  {
+    "objectID": "posts/pdal_laspy_read.html",
+    "href": "posts/pdal_laspy_read.html",
+    "title": "Laspy is over 2 times faster than PDAL at reading LAS files",
+    "section": "",
+    "text": "Here you have a totally unscientific, but still interesting, benchmark made while I was waiting for pdal to finish, isn’t that a bit crazy that is so slow?\n\nimport pdal\nimport laspy\n\n\nfile = \"PNOA_2023_ARA_568-4570_NPC01.laz\"\n\n\n!ls -lh $file\n\n-rw-r--r--. 1 simone simone 48M Mar  9 16:11 PNOA_2023_ARA_568-4570_NPC01.laz\n\n\n\npdal.Reader.las(filename=file).pipeline().execute()\n\n1.71 s ± 117 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)\n\n\n\nlas = laspy.read(file)\n\n773 ms ± 85.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)\n\n\n\n0.773 / 1.71\n\n0.45204678362573103",
+    "crumbs": [
+      "posts",
+      "Laspy is over 2 times faster than PDAL at reading LAS files"
+    ]
+  },
+  {
+    "objectID": "posts/pdal_python_bindings.html",
+    "href": "posts/pdal_python_bindings.html",
+    "title": "PDAL + python = use official bindings? not so fast!",
+    "section": "",
+    "text": "So you want to use PDAL to process point clouds and are also using python? Well for me this is a pretty common scenario as even when I only want to call pdal (without any additional process), I often end up using python. Using python in a jupyter notebook is a much better experience that just using the bash, as you have a proper scripting language and you can keep track of the commands outputs. In this scenario the first ideas that comes to my mind is using the official python bindings of PDAL https://github.com/PDAL/python, however htye have some important limitations that are not immediatly clear. An alternative is to use the cli interface of pdal and calling it using subprocess.run",
+    "crumbs": [
+      "posts",
+      "PDAL + python = use official bindings? not so fast!"
+    ]
+  },
+  {
+    "objectID": "posts/pdal_python_bindings.html#pro-and-cons-of-python-bindings",
+    "href": "posts/pdal_python_bindings.html#pro-and-cons-of-python-bindings",
+    "title": "PDAL + python = use official bindings? not so fast!",
+    "section": "Pro and Cons of python bindings",
+    "text": "Pro and Cons of python bindings\nCons:\n\nif there is an error in pdal it can crash the python interpreter! This is a pretty poor experience as you also don’t know why it crashed.\nyou cannot interrupt the process using ctrl+c (or kernel interrupt) as the pdal bindings block the python interpreter and doesn’t check for signals 1 . subprocess.run does handle signals properly and kills the process when you interrupt the python interpreter\nit doesn’t support multiple processes/threads. In my experience it just crashes the python interpreter, making it pretty hard to run in parallel.\nsome commands, like pdal tindex are not available in the python bindings and need to use the cli anyway\n\nPros:\n\ncan pass data from python to pdal without writing to disk",
+    "crumbs": [
+      "posts",
+      "PDAL + python = use official bindings? not so fast!"
+    ]
+  },
+  {
+    "objectID": "posts/pdal_python_bindings.html#solution",
+    "href": "posts/pdal_python_bindings.html#solution",
+    "title": "PDAL + python = use official bindings? not so fast!",
+    "section": "Solution",
+    "text": "Solution\nThis is the function that I use to run pdal from python. I still use the pdal bindings to build the pipeline (i.e. Pipeline, Writer, Reader, Filter) as it is nicer than manually creating the json file. However it is the executed in a subprocess instead in the python process.\nfrom pdal import Pipeline\nimport subprocess\ndef run_pdal(pipeline: Pipeline, pipe_name=\"pdal\", args=[]):\n    with open(f\"pipeline_{pipe_name}.json\", \"w\") as f:\n        f.write(pipeline.toJSON())\n    cmd = [\"pdal\", \"pipeline\", f\"pipeline_{pipe_name}.json\"]\n    cmd.extend(args) # overwrites pipeline attrs, for example [\"--writer.las.filename\", \"new_name\"]\n    subprocess.run(cmd, check=True)\nExtra: You can easily run this in parallel with a progress bar by using tqdm.contrib.concurrent.thread_map",
+    "crumbs": [
+      "posts",
+      "PDAL + python = use official bindings? not so fast!"
+    ]
+  },
+  {
+    "objectID": "posts/pdal_python_bindings.html#conclusion",
+    "href": "posts/pdal_python_bindings.html#conclusion",
+    "title": "PDAL + python = use official bindings? not so fast!",
+    "section": "Conclusion",
+    "text": "Conclusion\nIf your pdal pipeline doesn’t take data from python, don’t use the bindings but the cli interface",
+    "crumbs": [
+      "posts",
+      "PDAL + python = use official bindings? not so fast!"
+    ]
+  },
+  {
+    "objectID": "posts/pdal_python_bindings.html#footnotes",
+    "href": "posts/pdal_python_bindings.html#footnotes",
+    "title": "PDAL + python = use official bindings? not so fast!",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis is what you should do to properly handles signals inpybind11 https://pybind11.readthedocs.io/en/stable/faq.html#how-can-i-properly-handle-ctrl-c-in-long-running-functions↩︎",
+    "crumbs": [
+      "posts",
+      "PDAL + python = use official bindings? not so fast!"
+    ]
+  },
+  {
+    "objectID": "posts/deploy_gh_pages_custom_domain.html",
+    "href": "posts/deploy_gh_pages_custom_domain.html",
+    "title": "Deploy Quarto on Github pages on a custom domain",
+    "section": "",
+    "text": "For this website I wanted to publish it on a custom subdomain (til.mone27.net) and not on the default one (mone27.github.io). Doing this with quarto was slightly more complicated than I thought, so I wanted to document the steps I took to get it working.\nThe first thing is to add a custom domain in your github account and the in the repo pages settings. I am working with subdomain (not top level domain) so I had to add a CNAME record in my DNS settings poining to mone27.github.io.\nThen you need to add a CNAME file in the root of your repo with the custom domain name. In my case it was til.mone27.net. Now we need to convince quarto to also bring this file to the output directory (when deploying using CI).\nThanks to this helpful post I found that that in the _quarto.yml under the the project section I needed to add:\nproject:\n  type: website\n  resources: \n    - CNAME\nThis works! Last step is to enforce HTTPS on github pages and we are ready to go.",
+    "crumbs": [
+      "posts",
+      "Deploy Quarto on Github pages on a custom domain"
+    ]
+  },
+  {
+    "objectID": "posts/conda_r_deps.html",
+    "href": "posts/conda_r_deps.html",
+    "title": "Conda for R dependencies",
+    "section": "",
+    "text": "On Linux conda CRAN doesn’t support binary packages, which means that you need to compile the packages from source. This works but is kind of slow and annoying. I have tried to use the r packages on conda-forge as a way to get compiled R packages on linux and I have to say that overall works quite well.\nThis is especially useful as I want to have separate enviroments for different projects and I don’t want to compile the same packages over and over again.\nR packages on conda have a r- prefix so for example you can do: pixi add r-tidyverse 1 to install the tidyverse package.\nThere are many packages that are avaiable on CRAN but not on conda-forge and for those you still need to do install them the old way (for this pak::pak is a great tool). In this scenario is great that you can install compilers and libraries using conda, so you don’t depend on the system enviroment that you may not control or may have the wrong version. One thing to consider is that to install packages you need to make sure to activate the conda enviroment, or translated I am using R inside vscode and I have setup the R interpreter to ${worksspace}/.pixi/bin/R which works great except that it doesn’t activate the enviroment, which means that if I try to compile packages it doesn’t work. Executing R with pixi run R works great.",
+    "crumbs": [
+      "posts",
+      "Conda for R dependencies"
+    ]
+  },
+  {
+    "objectID": "posts/conda_r_deps.html#footnotes",
+    "href": "posts/conda_r_deps.html#footnotes",
+    "title": "Conda for R dependencies",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nI am using pixi to manage enviroments, but the packages come from conda↩︎",
+    "crumbs": [
+      "posts",
+      "Conda for R dependencies"
+    ]
+  },
+  {
+    "objectID": "posts/coding_llm_long_output.html",
+    "href": "posts/coding_llm_long_output.html",
+    "title": "Coding with LLM and long output",
+    "section": "",
+    "text": "For my development of the polars-qt package I have to work with a pretty long file that defines all units. I changed the API of my library to I needed to do a bulk update of my files (i.e. add square brakets around all dimensions so that length becomes [length]) which is a pretty tedious task to do manually and using an LLM is perfect fit. The LLM can reliably do the replacement but the problem is that the response output length is not enough to give me the entire file as output, but the input is long enough to handle the entire file. I am using github copilot with ChatGPT-4o, which has a return context of 16k tokens and an input context of 128k tokens. This means that I need to split my file in at least 3 chunks.\nInitially I was copy pasting each chunk into the LLM, getting the output and then repeating. However I realized that if I can first load the entire file and then ask the LLM to give the me the output between function foo and bar and this worked pretty reliably so I only need to copy paste the chunks one. To be honest this insights doesn’t really change my productivity that much but is an interesting fact about LLMs.",
+    "crumbs": [
+      "posts",
+      "Coding with LLM and long output"
+    ]
+  },
+  {
+    "objectID": "posts/httpie.html",
+    "href": "posts/httpie.html",
+    "title": "HTTPie.io",
+    "section": "",
+    "text": "This is more a Today I Discoverved (Tid?) than Today I learned, but I discovered httpie which is an app to make manual http requests and is very neat. I only used the basic functionality but is very well polished and definitely a tool to have in my toolbox in the future.\nYou can choose between the web version and desktop app (ofc using electron) and a terminal app.\nBonus: I learned how HTTP basic auth is sent in a request, you need to add an header with Authorization: Basic &lt;credentials&gt; where credentials are your credentials encoded in base64, however I didn’t easily find how you should format your credentials before encoding them",
+    "crumbs": [
+      "posts",
+      "HTTPie.io"
+    ]
+  }
+]
