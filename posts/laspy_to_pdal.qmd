@@ -1,0 +1,29 @@
+---
+title: "LasPy to PDAL"
+author: "Simone Massaro"
+date: 2026-01-09
+output: html_document
+---
+
+First post of the new year ... after spending way too much time writing a function that I didn't need at the end :/
+
+A simple and correct function to convert a `laspy.LasData` object to a structured numpy array compatible with PDAL.
+This doesn't seem very fast, my guess is that `merge_arrays` is doing a lot of copying around that could be optimized away. 
+
+
+```python
+import laspy
+import numpy as np
+from numpy.lib.recfunctions import drop_fields, merge_arrays, unstructured_to_structured
+
+
+def laspy_to_pdal(las_cloud: laspy.LasData) -> np.ndarray:
+    """
+    cloud_xyz = unstructured_to_structured(las_cloud.xyz, names=['X', 'Y', 'Z'])
+    cloud = drop_fields(las_cloud.points.array, ['X', 'Y', 'Z'])
+    cloud = merge_arrays([cloud_xyz, cloud], flatten=True)
+    # rename fields to CamelCase
+    new_names = [snake2camel(name) for name in cloud.dtype.names]
+    cloud.dtype.names = new_names
+    return cloud
+```
