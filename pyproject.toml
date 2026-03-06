@@ -1,3 +1,15 @@
 [build-system]
 requires = ["setuptools>=64.0"]
 build-backend = "setuptools.build_meta"
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[tool.pixi.pypi-dependencies]
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+ipykernel = ">=7.2.0,<8"
+numpy = ">=2.4.2,<3"
