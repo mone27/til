@@ -1,0 +1,18 @@
+---
+title: "Python Abstract Classes"
+author: "Simone Massaro"
+date: 2026-03-26
+output: html_document
+---
+
+Today I learned that python has abstract classes. You can do something like:
+
+```
+from abc import ABC, abstractmethod
+
+class Hittable(ABC):
+    @abstractmethod
+    def hit(self, ray_tmin: float, ray_tmax: float, rec: HitRecord) -> bool: ...
+```
+
+This is like having a virtual method in C++ and the base class is also not directly instantiable.
