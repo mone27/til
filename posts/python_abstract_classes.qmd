@@ -7,7 +7,7 @@ output: html_document
 
 Today I learned that python has abstract classes. You can do something like:
 
-```
+```python
 from abc import ABC, abstractmethod
 
 class Hittable(ABC):
