@@ -1,0 +1,9 @@
+---
+title: "Bash No History"
+author: "Simone Massaro"
+date: 2026-03-26
+output: html_document
+---
+
+Today I learned that if you add a space in front a command in bash, it will not be added to the history.
+Pretty neat! It is great when you have password or keys that you don't want to be saved in your history and super easy to use.
