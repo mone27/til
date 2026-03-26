@@ -1,0 +1,29 @@
+---
+title: "Systemd mounts"
+author: "Simone Massaro"
+date: 2026-03-26
+output: html_document
+---
+
+On a modern linux system systemd has it own way to mount disks that superseed the traditional `/etc/fstab` method.
+
+The cool thing is that you can use all the niceties of systemd including having proper supports for secrets.
+
+This is an example of how it works
+
+```ini
+# /etc/systemd/system/mnt-shares.mount
+[Unit]
+Description=UGent Network Share
+
+[Mount]
+What=//files.ugent.be/smassaro/shares
+Where=/mnt/shares
+Type=cifs
+Options=credentials=%d/ugent-smb.cred,noperm,vers=3.11,sec=ntlmv2i
+LoadCredentialEncrypted=ugent-smb.cred:/etc/credstore/ugent-smb.cred
+
+[Install]
+WantedBy=multi-user.target
+```
+
