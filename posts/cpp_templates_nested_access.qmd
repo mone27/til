@@ -1,0 +1,28 @@
+---
+title: "C++ Templates nested access"
+author: "Simone Massaro"
+date: 2026-04-02
+output: html_document
+---
+
+I just learned something cool about C++ templates you can set constraints based on the internals of a template parameter
+
+Inside `size_t Size = Point_::Size` is looking at the type defined inside the `Point_` type (which can be anything) and using it to define the types of the Matrix.
+
+
+```cpp
+template <typename Point_, bool Affine>
+struct Transform {
+    // =============================================================
+    //! @{ \name Type declarations
+    // =============================================================
+
+    static constexpr size_t Size = Point_::Size;
+    static constexpr bool IsAffine = Affine;
+
+    using Float   = dr::value_t<Point_>;
+    using Matrix  = dr::Matrix<Float, Size>;
+}
+```
+
+This snippet comes from the Mitsuba3 codebase
